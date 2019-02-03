@@ -33,7 +33,8 @@ The main idea of this project was to create an internal reporting tool. This too
     ORDER BY viewers desc;
 
     CREATE VIEW error_ view AS
-    SELECT date(time) AS date, round(100.0*sum(case log.status when '200 OK' then 0 else 1 end)/ count(log.status),2) 
+    SELECT date(time) AS date, 
+    round(100.0*sum(case log.status when '200 OK' then 0 else 1 end)/ count(log.status),2) 
     AS Error_Percentage 
     FROM log
     GROUP BY date
