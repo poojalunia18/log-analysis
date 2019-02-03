@@ -1,4 +1,4 @@
-# log-analysis-project
+# Log-Analysis-Project
 
 ## Description
 
@@ -19,11 +19,11 @@ The main idea of this project was to create an internal reporting tool. This too
   7. Run python3 udacity_log_analysis.py file on the terminal. 
   
 ## Views Created
-
-CREATE VIEW popular_authors AS
-SELECT articles.title, authors.name
-FROM articles, authors
-WHERE articles.author = authors.id;
+    ''' sql 
+    CREATE VIEW popular_authors AS
+    SELECT articles.title, authors.name
+    FROM articles, authors
+    WHERE articles.author = authors.id;
 
 CREATE VIEW author_page AS
 SELECT articles.title, count(log.id) as viewers
