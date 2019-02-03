@@ -19,21 +19,21 @@ The main idea of this project was to create an internal reporting tool. This too
   7. Run python3 udacity_log_analysis.py file on the terminal. 
   
 ## Views Created
-    ''' sql 
+    
     CREATE VIEW popular_authors AS
     SELECT articles.title, authors.name
     FROM articles, authors
     WHERE articles.author = authors.id;
 
-CREATE VIEW author_page AS
-SELECT articles.title, count(log.id) as viewers
-FROM articles, log
-WHERE log.path = CONCAT('/article/', articles.slug)
-GROUP BY articles.title, articles.author
-ORDER BY viewers desc;
+    CREATE VIEW author_page AS
+    SELECT articles.title, count(log.id) as viewers
+    FROM articles, log
+    WHERE log.path = CONCAT('/article/', articles.slug)
+    GROUP BY articles.title, articles.author
+    ORDER BY viewers desc;
 
-CREATE VIEW error_ view AS
-SELECT date(time) AS date, round(100.0*sum(case log.status when '200 OK' then 0 else 1 end)/ count(log.status),2) AS Error_Percentage 
-FROM log
-GROUP BY date
-ORDER BY Error_Percentage desc;
+    CREATE VIEW error_ view AS
+    SELECT date(time) AS date, round(100.0*sum(case log.status when '200 OK' then 0 else 1 end)/ count(log.status),2) AS Error_Percentage 
+      FROM log
+      GROUP BY date
+      ORDER BY Error_Percentage desc;
