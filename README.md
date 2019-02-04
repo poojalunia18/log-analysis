@@ -34,7 +34,7 @@ The main idea of this project was to create an internal reporting tool. This too
 
     CREATE VIEW error_view AS
     SELECT date(log.time) AS date, 
-           round(100.0*sum(case log.status when '200 OK' then 0 else 1 end)/ count(log.status),2) 
+           round(100.0*sum(case log.status when '404 NOT FOUND' then 1 else 0 end)/ count(log.status),2) 
     AS Error_Percentage 
     FROM log
     GROUP BY date
