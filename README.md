@@ -26,13 +26,13 @@ The main idea of this project was to create an internal reporting tool. This too
     WHERE articles.author = authors.id;
 
     CREATE VIEW author_page AS
-    SELECT articles.title, count(log.id) AS viewers
+    SELECT articles.title, count(log.*) AS viewers
     FROM articles, log
     WHERE log.path = CONCAT('/article/', articles.slug)
     GROUP BY articles.title, articles.author
     ORDER BY viewers desc;
 
-    CREATE VIEW error_ view AS
+    CREATE VIEW error_view AS
     SELECT date(log.time) AS date, 
            round(100.0*sum(case log.status when '200 OK' then 0 else 1 end)/ count(log.status),2) 
     AS Error_Percentage 
