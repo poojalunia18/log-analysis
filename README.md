@@ -13,9 +13,9 @@ The main idea of this project was to create an internal reporting tool. This too
   1. For user's recommendation for this project, make sure a virtual machine is installed. You can download Vagrant and VirtualBox to install and manage your virtual machine.
   2. Once installed, to make sure it is up and running, run vagrant up to make the virtual machine online and later run vagrant ssh to login. 
   3. Download the newsdata.sql file provided by Udacity. Unzip the file and put it inside the vagrant directory. 
-  4. Load the database using psql -d news -f newsdata.sql.
-  5. Connect to the database using psql -d news.
-  6. Create the Views given below. Then exit psql.
+  4. To Load the data from database, execute psql -d news -f newsdata.sql.
+  5. Connection to the database, execute psql -d news.
+  6. If using views (Like I have mentioned below), create them and then exit psql.
   7. Run python3 udacity_log_analysis.py file on the terminal. 
   
 ## Views Created
